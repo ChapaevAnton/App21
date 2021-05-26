@@ -15,7 +15,7 @@
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/page_title"
+            app:title="@string/regular_bar"
             android:background="#ea0042"
             app:menu="@menu/top_app_bar"
             app:navigationIcon="@drawable/ic_menu_24dp"
@@ -23,5 +23,19 @@
             />
 
     </com.google.android.material.appbar.AppBarLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/main_activity.text_view"
+        android:text="@string/long_click_me"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

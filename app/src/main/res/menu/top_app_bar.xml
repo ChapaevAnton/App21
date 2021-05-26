@@ -20,7 +20,7 @@
         android:id="@+id/main_activity.top_bar_more"
         android:title="@string/top_app_bar_more"
         android:icon="@drawable/top_app_bar_icon_more"
-        app:showAsAction="withText"
+        app:showAsAction="ifRoom"
         />
 
 
