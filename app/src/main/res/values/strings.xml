@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">App21</string>
+    <string name="page_title">Верхняя панель</string>
+    <string name="top_app_bar_favorites">Избранное</string>
+    <string name="top_app_bar_search">Поиск</string>
+    <string name="top_app_bar_more">Еще</string>
+</resources>
