@@ -6,4 +6,5 @@
     <string name="top_app_bar_search">Поиск</string>
     <string name="top_app_bar_more">Еще</string>
     <string name="long_click_me">long click me</string>
+    <string name="myButton">click me</string>
 </resources>

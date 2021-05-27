@@ -7,6 +7,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.ToggleButton
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +16,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val buttonToggle = findViewById<ToggleButton>(R.id.buttonToggle)
+        buttonToggle.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            else
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
 
         //Regular top app bar
         val topAppBar = findViewById<MaterialToolbar>(R.id.topAppBar)
@@ -66,15 +74,27 @@ class MainActivity : AppCompatActivity() {
                     return when (menuItem?.itemId) {
 
                         R.id.main_activity_top_bar_search -> {
-                            Toast.makeText(this@MainActivity, menuItem.itemId.toString(), Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                this@MainActivity,
+                                menuItem.itemId.toString(),
+                                Toast.LENGTH_LONG
+                            ).show()
                             true
                         }
                         R.id.main_activity_top_bar_favorites -> {
-                            Toast.makeText(this@MainActivity, menuItem.itemId.toString(), Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                this@MainActivity,
+                                menuItem.itemId.toString(),
+                                Toast.LENGTH_LONG
+                            ).show()
                             true
                         }
                         R.id.main_activity_top_bar_more -> {
-                            Toast.makeText(this@MainActivity, menuItem.itemId.toString(), Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                this@MainActivity,
+                                menuItem.itemId.toString(),
+                                Toast.LENGTH_LONG
+                            ).show()
                             true
                         }
                         else -> false
