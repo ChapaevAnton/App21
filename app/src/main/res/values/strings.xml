@@ -7,4 +7,7 @@
     <string name="top_app_bar_more">Еще</string>
     <string name="long_click_me">long click me</string>
     <string name="myButton">click me</string>
+    <string name="image_title">image title</string>
+    <string name="text_title">title</string>
+    <string name="text_description">description</string>
 </resources>
