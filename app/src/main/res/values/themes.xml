@@ -39,7 +39,6 @@
 
     <!-- activity style-->
     <style name="My_theme_App.TextSize">
-        <item name="android:textSize">45sp</item>
         <item name="android:textColor">@color/purple_700</item>
     </style>
 
@@ -64,6 +63,16 @@
         <item name="android:shadowColor">@color/red</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:backgroundTint">#03A9F4</item>
+    </style>
+
+    <style name="TextViewShadow" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/nunito_extralight</item>
+        <item name="android:fontFamily">@font/nunito_extralight</item>
+        <item name="android:textSize">103sp</item>
+        <item name="android:shadowDx">5</item>
+        <item name="android:shadowDy">5</item>
+        <item name="android:shadowRadius">5</item>
+        <item name="android:shadowColor">#2196F3</item>
     </style>
 
     <style name="RoundButtonStyle.TextSize">
