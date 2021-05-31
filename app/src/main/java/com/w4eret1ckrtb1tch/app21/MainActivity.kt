@@ -1,6 +1,7 @@
 package com.w4eret1ckrtb1tch.app21
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
@@ -15,16 +16,46 @@ class MainActivity : AppCompatActivity() {
         //create ViewPager2
         val viewPagerAdapter = ViewPagerAdapter() //создаем адаптер
         val viewPager = findViewById<ViewPager2>(R.id.main_view_pager) //находим viewpager на макете
+        viewPager.apply { orientation = ViewPager2.ORIENTATION_VERTICAL } //вертикальное перелистование
         viewPager.adapter = viewPagerAdapter //задаем viewpager раннее созданный адаптер
 
         //создаем список элементов
         val viewPagerList = mutableListOf<ViewPageItem>(
-            ViewPageItem("red", ContextCompat.getColor(this,R.color.red)),
-            ViewPageItem("blue", ContextCompat.getColor(this,R.color.blue)),
-            ViewPageItem("black", ContextCompat.getColor(this,R.color.black))
+            ViewPageItem("red", ContextCompat.getColor(this, R.color.red)),
+            ViewPageItem("blue", ContextCompat.getColor(this, R.color.blue)),
+            ViewPageItem("black", ContextCompat.getColor(this, R.color.black))
         )
 
         viewPagerAdapter.setItems(viewPagerList)
+
+        //эффект перелистывания
+        viewPager.setPageTransformer { pager, position ->
+            val pagerWidth = pager.width
+            pager.findViewById<TextView>(R.id.text_info).rotationX = position * (pagerWidth / 2)
+        }
+
+        //callback for viewpager
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+                //метод возвращает позицию и скролл
+            }
+
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                //метод возвращает текущую страницу
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+                super.onPageScrollStateChanged(state)
+                //методе можем проверять состояние ViewPager
+
+            }
+        })
 
 
 //        //set style to button
