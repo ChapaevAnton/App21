@@ -29,6 +29,8 @@
 
     <!-- My theme for app-->
     <style name="My_theme_App" parent="Theme.MaterialComponents.Light">
+        <!--        https://www.androhub.com/android-contextual-action-mode-over-toolbar/-->
+        <item name="windowActionModeOverlay">true</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="colorPrimary">#FF5722</item>
