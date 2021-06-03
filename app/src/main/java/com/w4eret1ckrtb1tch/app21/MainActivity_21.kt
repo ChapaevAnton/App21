@@ -7,13 +7,9 @@ import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.MaterialToolbar
-import com.w4eret1ckrtb1tch.app21.viewpager.ViewPageItem
-import com.w4eret1ckrtb1tch.app21.viewpager.ViewPagerAdapter
 
-class MainActivity : AppCompatActivity() {
+class MainActivity_21 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -133,7 +129,7 @@ class MainActivity : AppCompatActivity() {
 
                         R.id.main_activity_top_bar_search -> {
                             Toast.makeText(
-                                this@MainActivity,
+                                this@MainActivity_21,
                                 menuItem.itemId.toString(),
                                 Toast.LENGTH_LONG
                             ).show()
@@ -141,7 +137,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         R.id.main_activity_top_bar_favorites -> {
                             Toast.makeText(
-                                this@MainActivity,
+                                this@MainActivity_21,
                                 menuItem.itemId.toString(),
                                 Toast.LENGTH_LONG
                             ).show()
@@ -149,7 +145,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         R.id.main_activity_top_bar_more -> {
                             Toast.makeText(
-                                this@MainActivity,
+                                this@MainActivity_21,
                                 menuItem.itemId.toString(),
                                 Toast.LENGTH_LONG
                             ).show()
