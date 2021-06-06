@@ -11,4 +11,5 @@
     <string name="text_title">title</string>
     <string name="text_description">description</string>
     <string name="run_animation">run</string>
+    <string name="start_rocket">start</string>
 </resources>
