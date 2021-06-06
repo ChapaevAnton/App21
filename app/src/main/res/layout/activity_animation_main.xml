@@ -8,10 +8,10 @@
 
 
     <LinearLayout
-        android:layoutAnimation="@anim/layout_animation"
         android:id="@+id/linear_layout"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layoutAnimation="@anim/layout_animation"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,21 +19,37 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
+            android:layout_marginTop="50dp"
+            android:id="@+id/button_translate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/myButton" />
 
         <Button
+            android:layout_marginTop="50dp"
+            android:id="@+id/button_scale"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/myButton" />
 
         <Button
+            android:layout_marginTop="50dp"
+            android:id="@+id/button_rotate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/myButton" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button_run"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/run_animation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear_layout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
