@@ -17,14 +17,14 @@ class MainActivity_22 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_animation_vector)
+        setContentView(R.layout.activity_rocket_start)
 
         // TODO: 12.06.2021 22.5 Vector animation
-        val frameVectorAnimation = findViewById<Button>(R.id.frame_vector_animation)
-        //frameVectorAnimation.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.avd_anim))
-        val animatorVector = frameVectorAnimation.background as AnimatedVectorDrawable
-
-        frameVectorAnimation.setOnClickListener { animatorVector.start() }
+//        val frameVectorAnimation = findViewById<Button>(R.id.frame_vector_animation)
+//        //frameVectorAnimation.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.avd_anim))
+//        val animatorVector = frameVectorAnimation.background as AnimatedVectorDrawable
+//
+//        frameVectorAnimation.setOnClickListener { animatorVector.start() }
 
         // TODO: 07.06.2021 22.4 AnimatorSet
 //        val sun = findViewById<FrameLayout>(R.id.yellow_san)
@@ -65,22 +65,37 @@ class MainActivity_22 : AppCompatActivity() {
 //        }
 
 
+        val rocket = findViewById<ImageView>(R.id.rocket)
+        val startRocketButton = findViewById<Button>(R.id.start_rocket)
+
+
         // TODO: 07.06.2021 22.1-22.2
-//        val rocket = findViewById<ImageView>(R.id.rocket)
-//        val startRocketButton = findViewById<Button>(R.id.start_rocket)
-////
 //        val startRocketAnimation =
 //            AnimationUtils.loadAnimation(this, R.anim.animation_start_rocket_translate)
 //        rocket.setOnClickListener {
 //            it.startAnimation(startRocketAnimation)
 //        }
 
+        // TODO: 12.06.2021 22.6 ViewPropertyAnimation
+        rocket.setOnClickListener {
+            it
+                .animate()
+                .setDuration(2000)
+                .translationY(-1200f)
+                .rotation(360f)
+                .x(100f)
+                .setInterpolator(OvershootInterpolator())
+                .withStartAction { Toast.makeText(this, "START", Toast.LENGTH_SHORT).show() }
+                .withEndAction { Toast.makeText(this, "END", Toast.LENGTH_SHORT).show() }
+                .start()
+        }
+
 
 //     var frameAnimator: AnimationDrawable? = null
 
 //        startRocketButton.setOnClickListener {
 
-            // TODO: 12.06.2021 22.22.5. Interpolator
+        // TODO: 12.06.2021 22.22.5. Interpolator
 
 //            val valueAnimatorInterpolator = ValueAnimator.ofFloat(0f, -1200f)
 //            valueAnimatorInterpolator.apply {
@@ -119,7 +134,7 @@ class MainActivity_22 : AppCompatActivity() {
 //            }
 
 
-            // TODO: 07.06.2021 22.4 FrameAnimator, AnimatorSet
+        // TODO: 07.06.2021 22.4 FrameAnimator, AnimatorSet
 //            if (frameAnimator == null) {
 //                frameAnimator = ContextCompat.getDrawable(
 //                    this,
@@ -136,8 +151,8 @@ class MainActivity_22 : AppCompatActivity() {
 //            }
 
 
-            //TODO 22.3
-            //ObjectValue method
+        //TODO 22.3
+        //ObjectValue method
 //            ObjectAnimator.ofFloat(rocket, View.TRANSLATION_Y, 0f, -500f).apply {
 //                repeatMode = ObjectAnimator.REVERSE
 //                repeatCount = 1
@@ -166,7 +181,7 @@ class MainActivity_22 : AppCompatActivity() {
 //            }
 
 
-            //ValueAnimator method
+        //ValueAnimator method
 //            val valueAnimator = ValueAnimator.ofFloat(0f, -500f)
 //            valueAnimator.apply {
 //                addUpdateListener { rocket.translationY = it.animatedValue as Float }
@@ -176,7 +191,7 @@ class MainActivity_22 : AppCompatActivity() {
 //                start()
 //            }
 
- //       }
+        //       }
 
 // TODO: 06.06.2021 22.2
 
