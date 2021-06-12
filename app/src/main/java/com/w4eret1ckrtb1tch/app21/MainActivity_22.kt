@@ -1,57 +1,76 @@
 package com.w4eret1ckrtb1tch.app21
 
+import android.animation.Animator
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
+import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
-import android.widget.FrameLayout
+import android.view.Gravity
+import android.view.animation.*
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 
 class MainActivity_22 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_animation_set_animator)
+        setContentView(R.layout.activity_animation_vector)
+
+        // TODO: 12.06.2021 22.5 Vector animation
+        val frameVectorAnimation = findViewById<Button>(R.id.frame_vector_animation)
+        //frameVectorAnimation.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.avd_anim))
+        val animatorVector = frameVectorAnimation.background as AnimatedVectorDrawable
+
+        frameVectorAnimation.setOnClickListener { animatorVector.start() }
 
         // TODO: 07.06.2021 22.4 AnimatorSet
-        val sun = findViewById<FrameLayout>(R.id.yellow_san)
-        val cloud1 = findViewById<FrameLayout>(R.id.cloud_1)
-        val cloud2 = findViewById<FrameLayout>(R.id.cloud_2)
-        val dark = findViewById<FrameLayout>(R.id.dark)
-
-        val sunAnimation = ValueAnimator.ofFloat(0f, -1200f).apply {
-            addUpdateListener { sun.translationY = it.animatedValue as Float }
-            duration = 2000
-        }
-        val cloud1Animation = ValueAnimator.ofFloat(0f, 500f).apply {
-            addUpdateListener { cloud1.translationX = it.animatedValue as Float }
-            duration = 1000
-        }
-
-        val cloud2Animation = ValueAnimator.ofFloat(0f, -500f).apply {
-            addUpdateListener { cloud2.translationX = it.animatedValue as Float }
-            duration = 1000
-        }
-
-        val darkAnimation = ValueAnimator.ofFloat(1f, 0f).apply {
-            addUpdateListener {
-                dark.alpha = it.animatedValue as Float
-            }
-            duration = 3000
-        }
-        val dawnAnimatorSet = AnimatorSet()
-        dawnAnimatorSet.run {
-            startDelay = 2000
-            playTogether(sunAnimation, darkAnimation)
-            playSequentially(cloud1Animation, cloud2Animation)
-            start()
-        }
+//        val sun = findViewById<FrameLayout>(R.id.yellow_san)
+//        val cloud1 = findViewById<FrameLayout>(R.id.cloud_1)
+//        val cloud2 = findViewById<FrameLayout>(R.id.cloud_2)
+//        val dark = findViewById<FrameLayout>(R.id.dark)
+//
+//        val sunAnimation = ValueAnimator.ofFloat(0f, -1200f).apply {
+//            addUpdateListener { sun.translationY = it.animatedValue as Float }
+//            interpolator = OvershootInterpolator()
+//            duration = 2000
+//        }
+//        val cloud1Animation = ValueAnimator.ofFloat(0f, 500f).apply {
+//            addUpdateListener { cloud1.translationX = it.animatedValue as Float }
+//            interpolator = FastOutSlowInInterpolator()
+//            duration = 1000
+//        }
+//
+//        val cloud2Animation = ValueAnimator.ofFloat(0f, -500f).apply {
+//            addUpdateListener { cloud2.translationX = it.animatedValue as Float }
+//            interpolator = BounceInterpolator()
+//            duration = 1000
+//        }
+//
+//        val darkAnimation = ValueAnimator.ofFloat(1f, 0f).apply {
+//            addUpdateListener {
+//                dark.alpha = it.animatedValue as Float
+//            }
+//            interpolator = OvershootInterpolator()
+//            duration = 3000
+//        }
+//        val dawnAnimatorSet = AnimatorSet()
+//        dawnAnimatorSet.run {
+//            startDelay = 2000
+//            playTogether(sunAnimation, darkAnimation)
+//            playSequentially(cloud1Animation, cloud2Animation)
+//            start()
+//        }
 
 
         // TODO: 07.06.2021 22.1-22.2
 //        val rocket = findViewById<ImageView>(R.id.rocket)
 //        val startRocketButton = findViewById<Button>(R.id.start_rocket)
-//
-//        val startRocketAnimation = AnimationUtils.loadAnimation(this, R.anim.animation_start_rocket)
+////
+//        val startRocketAnimation =
+//            AnimationUtils.loadAnimation(this, R.anim.animation_start_rocket_translate)
 //        rocket.setOnClickListener {
 //            it.startAnimation(startRocketAnimation)
 //        }
@@ -61,7 +80,46 @@ class MainActivity_22 : AppCompatActivity() {
 
 //        startRocketButton.setOnClickListener {
 
-        // TODO: 07.06.2021 22.4 FrameAnimator, AnimatorSet
+            // TODO: 12.06.2021 22.22.5. Interpolator
+
+//            val valueAnimatorInterpolator = ValueAnimator.ofFloat(0f, -1200f)
+//            valueAnimatorInterpolator.apply {
+//                duration = 1500
+//                repeatCount = 0
+//                interpolator = AccelerateDecelerateInterpolator() //разгон и торможение
+//                interpolator = AccelerateInterpolator() // разгон
+//                interpolator = OvershootInterpolator() //перелет
+//                interpolator = AnticipateInterpolator() //замах
+//                interpolator = AnticipateOvershootInterpolator() //замах с перелетом
+//                interpolator = BounceInterpolator() //отскок
+//                interpolator = FastOutSlowInInterpolator() //резко в конце
+//                interpolator = LinearOutSlowInInterpolator() //резко в начале
+//                addUpdateListener {
+//                    rocket.translationY = it.animatedValue as Float
+//                }
+//                addListener(object : Animator.AnimatorListener {
+//                    override fun onAnimationStart(animation: Animator?) {
+//                        Toast.makeText(this@MainActivity_22, "START", Toast.LENGTH_SHORT).show()
+//
+//                    }
+//
+//                    override fun onAnimationCancel(animation: Animator?) {}
+//
+//                    override fun onAnimationRepeat(animation: Animator?) {}
+//
+//                    override fun onAnimationEnd(animation: Animator?) {
+//                        Toast.makeText(this@MainActivity_22, "STOP", Toast.LENGTH_SHORT).apply {
+//                            setGravity(Gravity.CENTER, 0, 0)
+//                            show()
+//                        }
+//                    }
+//
+//                })
+//                start()
+//            }
+
+
+            // TODO: 07.06.2021 22.4 FrameAnimator, AnimatorSet
 //            if (frameAnimator == null) {
 //                frameAnimator = ContextCompat.getDrawable(
 //                    this,
@@ -78,8 +136,8 @@ class MainActivity_22 : AppCompatActivity() {
 //            }
 
 
-        //TODO 22.3
-        //ObjectValue method
+            //TODO 22.3
+            //ObjectValue method
 //            ObjectAnimator.ofFloat(rocket, View.TRANSLATION_Y, 0f, -500f).apply {
 //                repeatMode = ObjectAnimator.REVERSE
 //                repeatCount = 1
@@ -108,7 +166,7 @@ class MainActivity_22 : AppCompatActivity() {
 //            }
 
 
-        //ValueAnimator method
+            //ValueAnimator method
 //            val valueAnimator = ValueAnimator.ofFloat(0f, -500f)
 //            valueAnimator.apply {
 //                addUpdateListener { rocket.translationY = it.animatedValue as Float }
@@ -118,7 +176,7 @@ class MainActivity_22 : AppCompatActivity() {
 //                start()
 //            }
 
-//        }
+ //       }
 
 // TODO: 06.06.2021 22.2
 
