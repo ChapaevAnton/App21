@@ -1,15 +1,15 @@
 package com.w4eret1ckrtb1tch.app21
 
-import android.animation.Animator
-import android.animation.AnimatorSet
-import android.animation.ValueAnimator
+import android.animation.*
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
 import android.view.Gravity
+import android.view.ViewGroup
 import android.view.animation.*
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.size
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 
@@ -17,7 +17,53 @@ class MainActivity_22 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rocket_start)
+        setContentView(R.layout.activity_layout_transition)
+
+        // TODO: 13.06.2021 22.7. LayoutTransition
+        val add = findViewById<Button>(R.id.add)
+        val delete = findViewById<Button>(R.id.delete)
+        val container = findViewById<LinearLayout>(R.id.linear_container).apply {
+
+
+// TODO: 13.06.2021 Как задать разные анимации на добавление и удаление??? Задание 22.7.1
+
+           layoutTransition.enableTransitionType(LayoutTransition.DISAPPEARING)
+//            layoutTransition.setAnimator(
+//                LayoutTransition.APPEARING, AnimatorInflater.loadAnimator(
+//                    this@MainActivity_22,
+//                    R.animator.animator_botton_add_popit
+//                )
+//            )
+            layoutTransition.setAnimator(
+                LayoutTransition.DISAPPEARING,
+                AnimatorInflater.loadAnimator(
+                    this@MainActivity_22,
+                    R.animator.animator_botton_delete_visibility
+                )
+            )
+
+
+        }
+
+
+        add.setOnClickListener {
+            val button = Button(this)
+            button.apply {
+                text = container.childCount.toString()
+//                alpha = 1f
+//                scaleX = 0f
+//                scaleY = 0f
+            }.setOnClickListener { button.text = "12345678900987654321" }
+
+            container.addView(button)
+        }
+
+        delete.setOnClickListener {
+            if (container.childCount != 0) {
+                container.removeViewAt(container.childCount - 1)
+            }
+        }
+
 
         // TODO: 12.06.2021 22.5 Vector animation
 //        val frameVectorAnimation = findViewById<Button>(R.id.frame_vector_animation)
@@ -65,8 +111,8 @@ class MainActivity_22 : AppCompatActivity() {
 //        }
 
 
-        val rocket = findViewById<ImageView>(R.id.rocket)
-        val startRocketButton = findViewById<Button>(R.id.start_rocket)
+//        val rocket = findViewById<ImageView>(R.id.rocket)
+//        val startRocketButton = findViewById<Button>(R.id.start_rocket)
 
 
         // TODO: 07.06.2021 22.1-22.2
@@ -77,18 +123,18 @@ class MainActivity_22 : AppCompatActivity() {
 //        }
 
         // TODO: 12.06.2021 22.6 ViewPropertyAnimation
-        rocket.setOnClickListener {
-            it
-                .animate()
-                .setDuration(2000)
-                .translationY(-1200f)
-                .rotation(360f)
-                .x(100f)
-                .setInterpolator(OvershootInterpolator())
-                .withStartAction { Toast.makeText(this, "START", Toast.LENGTH_SHORT).show() }
-                .withEndAction { Toast.makeText(this, "END", Toast.LENGTH_SHORT).show() }
-                .start()
-        }
+//        rocket.setOnClickListener {
+//            it
+//                .animate()
+//                .setDuration(2000)
+//                .translationY(-1200f)
+//                .rotation(360f)
+//                .x(100f)
+//                .setInterpolator(OvershootInterpolator())
+//                .withStartAction { Toast.makeText(this, "START", Toast.LENGTH_SHORT).show() }
+//                .withEndAction { Toast.makeText(this, "END", Toast.LENGTH_SHORT).show() }
+//                .start()
+//        }
 
 
 //     var frameAnimator: AnimationDrawable? = null
