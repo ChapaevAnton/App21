@@ -1,17 +1,10 @@
 package com.w4eret1ckrtb1tch.app21
 
 import android.animation.*
-import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
-import android.view.Gravity
-import android.view.ViewGroup
 import android.view.animation.*
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.size
-import androidx.interpolator.view.animation.FastOutSlowInInterpolator
-import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 
 class MainActivity_22 : AppCompatActivity() {
 
@@ -27,7 +20,7 @@ class MainActivity_22 : AppCompatActivity() {
 
 // TODO: 13.06.2021 Как задать разные анимации на добавление и удаление??? Задание 22.7.1
 
-           layoutTransition.enableTransitionType(LayoutTransition.DISAPPEARING)
+            layoutTransition.enableTransitionType(LayoutTransition.DISAPPEARING)
 //            layoutTransition.setAnimator(
 //                LayoutTransition.APPEARING, AnimatorInflater.loadAnimator(
 //                    this@MainActivity_22,
@@ -41,19 +34,27 @@ class MainActivity_22 : AppCompatActivity() {
                     R.animator.animator_botton_delete_visibility
                 )
             )
-
-
         }
-
 
         add.setOnClickListener {
             val button = Button(this)
             button.apply {
+
+                // TODO: 14.06.2021 22.8 StateListAnimator
+                stateListAnimator =
+                    if (container.childCount % 2 != 0) AnimatorInflater.loadStateListAnimator(
+                        this@MainActivity_22,
+                        R.animator.animator_button_selector_statelist
+                    ) else AnimatorInflater.loadStateListAnimator(
+                        this@MainActivity_22,
+                        R.animator.animator_button_selector_statelist_1
+                    )
                 text = container.childCount.toString()
 //                alpha = 1f
 //                scaleX = 0f
 //                scaleY = 0f
-            }.setOnClickListener { button.text = "12345678900987654321" }
+                setOnClickListener { button.text = "123456789" }
+            }
 
             container.addView(button)
         }
